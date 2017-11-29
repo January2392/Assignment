@@ -1,0 +1,51 @@
+// This file tells the changes made
+// This file is not able to run, just for recording changes.
+// Created by January Huang, for interview assignment, 
+// Created on 29th Nov 2017
+
+{
+  "resourceType": "Patient",   // Add a "," after "patient"
+  "id": "xcda",
+  "text": {                    // Add a "{"
+    "status": "generated",
+    "div": "\n      \n      <p>Henry Levin the 7th</>\n    \n    </div>"
+  },
+
+  "identifier": [    // Add a ":" 
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "htt://hl7.org/fhir/v2/0203", // Add a ","
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:2.16.840.1.113883.19.5",  //add a ","
+      "value": "12345",
+      "active": true,
+      "name": [
+        {
+          "family": [
+            "Levin"
+          ],        // add a ","
+          "given": [
+            "Henry"
+          ]
+        }
+      ],   // add a ","
+      "gender": "male",    // add a quatation mark
+      "birthDate": "2002-09-24",    // add a ","
+      "managingOrganization": {
+        "reference": "Organization/2.16.840.1.113883.19.5",
+        "display": "University Health Network"
+      },
+      "conditions": [
+        "Diabetes",
+        "High blood pressure", // add a ","
+        "Asthma"
+      ]
+    }
+  ] // added a "]
+} // added a "}"

@@ -1,0 +1,52 @@
+/* || general styles */
+
+html {
+	font-family: Verdana, Arial Black, sans-serif;
+}
+
+body {
+	width: 800px;
+	margin: 0 auto;
+}
+
+/* header styles */
+
+h1 {
+	font-family: Arial Black
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+	letter-spacing: 0px;
+	background-color: #C8E9B1
+
+}
+
+header p {
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* section styles */
+
+section article {
+	width: 100%;
+	float: left;
+	margin-left: 20%;
+}
+
+section p {
+	margin: 3 px 0;
+	margin-bottom: 0px;
+}
+
+section ul {
+	margin-top: 0;
+}
+
+h2 {
+	font-size: 18px;
+	letter-spacing: 0px;
+	margin-bottom: 10px;
+
+}

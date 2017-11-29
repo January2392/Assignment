@@ -1,0 +1,79 @@
+<!-- 
+This website displays data stored in a json file
+Created for SeamlessMD interview assignment
+Created by January Huang
+Created on 29th Nov 2017
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Patients</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+
+		<header>
+			<h1>Information of the Patients</h1>
+		</header>
+
+		<section>
+
+		</section>
+
+		<script type = "text/javascript">
+		var header = document.querySelector('header');
+		var section = document.querySelector('section');
+		
+		var requestURL = 'patient.json';
+		var request = new XMLHttpRequest();
+		request.open('GET', requestURL);
+		request.responseType = 'json';
+		request.send();
+
+		request.onload = function() {
+			var patient = request.response;
+			showPatient(patient);
+		}
+
+		function showPatient(jsonObj) {
+			var patient = jsonObj['identifier'];  		
+
+			for (var i = 0; i < patient.length; i++) {
+				var myArticle = document.createElement('article');
+				var myH2 = document.createElement('h2');
+				var myOrg = document.createElement('p');
+				var myGender = document.createElement('p');
+				var myNum = document.createElement('p');
+				var myListTitle = document.createElement('p');
+				var myList = document.createElement('ul');
+
+				myH2.textContent = 'Name of patient: ' + patient[i].name[0].given + ' ' + patient[i].name[0].family;
+				myOrg.textContent = 'Organization name: ' + patient[i].managingOrganization.display;
+				myGender.textContent = 'Gender: ' + patient[i].gender;
+				myNum.textContent = 'Number of conditions they have: ' + patient[i].conditions.length;
+				myListTitle.textContent = 'List of all conditions: ';
+
+				// "conditions" is a list, need to use for loop here.
+				var conditions = patient[i].conditions;
+				for (var k = 0; k < conditions.length; k++) {
+					var list = document.createElement('li');
+					list.textContent = conditions[k];
+					myList.appendChild(list);
+				}
+
+				myArticle.appendChild(myH2);
+				myArticle.appendChild(myOrg);
+				myArticle.appendChild(myGender);
+				myArticle.appendChild(myNum);
+				myArticle.appendChild(myListTitle);
+				myArticle.appendChild(myList);
+
+				section.appendChild(myArticle);
+			}
+		}
+		</script>
+	</body>
+</html>
